@@ -1,5 +1,5 @@
 /*
-See the LICENSE.txt file for this sample’s licensing information.
+See the LICENSE.txt file for this sample's licensing information.
 
 Abstract:
 Displays the captured image and runs table detection.
@@ -19,7 +19,7 @@ struct ImageView: View {
         ZStack(alignment: .top) {
             NavigationStack {
                 VStack {
-                    // Navigation buttons to retake photo, view or export data.
+                    // Navigation buttons to retake photo, edit table, view or export data.
                     HStack {
                         Spacer()
                         NavigationLink("Retake photo") {
@@ -27,6 +27,16 @@ struct ImageView: View {
                         }
                             .buttonStyle(RoundedButton())
                             .navigationBarBackButtonHidden()
+                        
+                        // ✨ New: Edit Table button
+                        if viewModel.table != nil {
+                            Spacer()
+                            NavigationLink("Edit Table") {
+                                TableEditorView(visionTable: viewModel.table!)
+                            }
+                            .buttonStyle(RoundedButton())
+                        }
+                        
                         if !viewModel.contacts.isEmpty {
                             Spacer()
                             NavigationLink("View Contacts") {

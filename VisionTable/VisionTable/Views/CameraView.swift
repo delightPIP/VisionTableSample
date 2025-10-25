@@ -25,7 +25,7 @@ struct CameraView: View {
                 Button(action: self.takePhoto) {
                     Circle()
                         .inset(by: 5)
-                        .fill(.white)
+                        .fill(.purple)
                         .frame(width: 68, height: 68)
                         .padding()
                 }.buttonStyle(PhotoButtonStyle())
